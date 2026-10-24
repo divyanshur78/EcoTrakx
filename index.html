@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoTrakX | Understand Your Carbon Footprint</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+    "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+}
+</script>
+</head>
+
+<body>
+
+<div id="siteShell">
+
+
+<header class="navbar">
+
+    <a href="#home" class="logo nav-close" aria-label="EcoTrack Home">
+        <img src="logo_ecotrakx.png" alt="EcoTrack">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="#home" class="nav-close">Home</a>
+
+        <a href="#about" class="nav-close">About</a>
+
+        <a href="#how" class="nav-close">How It Works</a>
+
+        <a href="#calculator" class="nav-close">Calculator</a>
+
+        <a href="#dashboard" class="nav-close">Insights</a>
+
+        <a href="#explore" class="nav-close" onclick="openExplore(); return false;">Climate Data</a>
+
+        <a href="#login" class="nav-btn" id="loginNavBtn" onclick="openLogin(); return false;">
+            Login
+        </a>
+
+        <button
+            type="button"
+            class="profile-nav-btn"
+            id="profileNavBtn"
+            aria-label="Open your EcoTrack profile"
+            title="Profile"
+            onclick="openProfile()"
+        >👤</button>
+
+    </nav>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+</header>
+
+
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="badge">
+            🌍 Build a Greener Future
+        </div>
+
+        <h1>
+            Understand your
+            <span>carbon footprint.</span>
+            Change your impact.
+        </h1>
+
+        <p>
+            EcoTrack helps you understand how your everyday choices
+            affect the planet and gives you practical ways to live
+            more sustainably.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#calculator" class="primary-btn nav-close">
+                Calculate My Footprint →
+            </a>
+
+            <a href="#explore" class="secondary-btn nav-close" onclick="openExplore(); return false;">
+                Climate Data →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="earth-wrap">
+            <div id="earth3d" aria-label="Interactive 3D Earth"></div>
+            <div id="earthFallback" class="earth-fallback" aria-hidden="true"></div>
+            
+        </div>
+
+        <div class="floating-card card-1">
+            <small>Avg. EcoScore</small>
+            <strong id="heroScore">41 / 100</strong>
+        </div>
+
+        <div class="floating-card card-2">
+            <small>Improving Potential of</small>
+            <strong id="heroFootprint">28%</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="carbon-info">
+
+    <div class="carbon-info-container">
+
+        <div>
+
+            <div class="carbon-info-label">
+                Understand The Basics
+            </div>
+
+            <h2>
+                What is a carbon footprint?
+            </h2>
+
+            <p class="carbon-info-intro">
+                A carbon footprint is an estimate of the greenhouse
+                gas emissions associated with the activities we
+                perform in everyday life. Transportation, electricity,
+                food, flights and waste can all contribute to it.
+            </p>
+
+        </div>
+
+
+        <div class="carbon-points">
+
+            <div class="carbon-point">
+
+                <div class="carbon-point-icon">🚗</div>
+
+                <h3>Transportation</h3>
+
+                <p>
+                    Cars, bikes and public transportation can create
+                    different levels of emissions depending on distance
+                    and travel method.
+                </p>
+
+            </div>
+
+
+            <div class="carbon-point">
+
+                <div class="carbon-point-icon">⚡</div>
+
+                <h3>Energy</h3>
+
+                <p>
+                    Electricity consumption contributes to your
+                    footprint depending on how much energy you use.
+                </p>
+
+            </div>
+
+
+            <div class="carbon-point">
+
+                <div class="carbon-point-icon">✈️</div>
+
+                <h3>Travel</h3>
+
+                <p>
+                    Air travel can contribute significantly to annual
+                    greenhouse gas emissions.
+                </p>
+
+            </div>
+
+
+            <div class="carbon-point">
+
+                <div class="carbon-point-icon">🌱</div>
+
+                <h3>Lifestyle</h3>
+
+                <p>
+                    Food choices and waste management also contribute
+                    to your overall environmental impact.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section" id="about">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            Why EcoTrack
+        </div>
+
+        <h2>
+            From awareness to action.
+        </h2>
+
+        <p>
+            Knowing your carbon footprint is the first step.
+            EcoTrack turns that information into understandable
+            insights and achievable sustainable actions.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">🌍</div>
+
+            <h3>Carbon Calculator</h3>
+
+            <p>
+                Estimate your personal carbon footprint using
+                transportation, energy, food and lifestyle data.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">📊</div>
+
+            <h3>Eco Dashboard</h3>
+
+            <p>
+                See where your emissions come from and understand
+                which areas have the biggest impact.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🏆</div>
+
+            <h3>Eco Score</h3>
+
+            <p>
+                Get a simple score and level that help you understand
+                your current sustainability performance.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🤖</div>
+
+            <h3>Smart Suggestions</h3>
+
+            <p>
+                Receive practical suggestions to reduce your
+                environmental impact.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section how" id="how">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            Simple Process
+        </div>
+
+        <h2>
+            How EcoTrack works
+        </h2>
+
+        <p>
+            Four simple steps to understand and improve your
+            environmental impact.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">01</div>
+
+            <h3>Enter Your Data</h3>
+
+            <p>
+                Tell us about your transportation, energy,
+                food and travel habits.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">02</div>
+
+            <h3>Calculate</h3>
+
+            <p>
+                EcoTrack estimates your carbon footprint from
+                the information provided.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">03</div>
+
+            <h3>Understand</h3>
+
+            <p>
+                Explore your emissions breakdown and Eco Score
+                through the dashboard.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">04</div>
+
+            <h3>Take Action</h3>
+
+            <p>
+                Follow practical recommendations to reduce
+                your environmental impact.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section calculator-section" id="calculator">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            Eco Calculator
+        </div>
+
+        <h2>
+            Calculate your carbon footprint
+        </h2>
+
+        <p style="color:#b8cec3">
+            Enter your daily transportation and monthly lifestyle
+            information to calculate your estimated monthly and
+            annual carbon footprint.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="calculator-intro">
+            <div>
+                <span class="calculator-mini-label">PERSONAL CARBON CHECK</span>
+                <h3>Ready to see your footprint?</h3>
+                <p>Open the calculator, enter your everyday activity data, and get your Eco Score.</p>
+            </div>
+            <button type="button" class="calculator-toggle" id="calculatorToggle" onclick="toggleCalculator()">
+                Calculate
+                <span id="calculatorToggleIcon">＋</span>
+            </button>
+        </div>
+
+        <div id="calculatorForm" class="calculator-form">
+
+        <div class="form-grid">
+
+            <div class="form-section-title">
+                🚗 Daily Transportation
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Daily Car Distance (km)</label>
+
+                <input
+                    id="car"
+                    type="number"
+                    value="0"
+                    min="0"
+                    step="0.1"
+                >
+
+                <span class="input-help">
+                    Average kilometres travelled by car each day.
+                </span>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Daily Bike Distance (km)</label>
+
+                <input
+                    id="bike"
+                    type="number"
+                    value="0"
+                    min="0"
+                    step="0.1"
+                >
+
+                <span class="input-help">
+                    Average kilometres travelled by motorbike each day.
+                </span>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Daily Public Transport (km)</label>
+
+                <input
+                    id="publicTransport"
+                    type="number"
+                    value="0"
+                    min="0"
+                    step="0.1"
+                >
+
+                <span class="input-help">
+                    Bus, metro or other public transportation.
+                </span>
+
+            </div>
+
+
+            <div class="form-section-title">
+                ⚡ Monthly Consumption & Travel
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Monthly Electricity (kWh)</label>
+
+                <input
+                    id="electricity"
+                    type="number"
+                    value="0"
+                    min="0"
+                    step="1"
+                >
+
+                <span class="input-help">
+                    Electricity consumed during one month.
+                </span>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Flights Per Month</label>
+
+                <input
+                    id="flights"
+                    type="number"
+                    value="0"
+                    min="0"
+                    step="1"
+                >
+
+                <span class="input-help">
+                    Number of flights taken each month.
+                </span>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Diet</label>
+
+                <select id="diet">
+
+                    <option value="1.2">
+                        Vegan
+                    </option>
+
+                    <option value="1.7" selected>
+                        Vegetarian
+                    </option>
+
+                    <option value="2.3">
+                        Non-Vegetarian
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Waste Management</label>
+
+                <select id="waste">
+
+                    <option value="0.7">
+                        Mostly Recycled
+                    </option>
+
+                    <option value="1" selected>
+                        Average
+                    </option>
+
+                    <option value="1.4">
+                        Mostly Landfill
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateFootprint()"
+        >
+            Calculate My Eco Score
+        </button>
+
+
+
+        <div id="results">
+
+            <div class="calculation-date">
+
+                📅 Calculation Date:
+                <span id="calculationDate">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="result-top">
+
+                <div class="result-box">
+
+                    <h3>
+                        Estimated Monthly Footprint
+                    </h3>
+
+                    <strong id="monthlyResult">
+                        0
+                    </strong>
+
+                    <p>
+                        kg CO₂e / month
+                    </p>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>
+                        Estimated Annual Footprint
+                    </h3>
+
+                    <strong id="co2Result">
+                        0
+                    </strong>
+
+                    <p>
+                        kg CO₂e / year
+                    </p>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>Your Eco Level</h3>
+
+                    <div class="eco-level-badge" id="levelBadge">
+                        <span class="badge-icon" id="levelIcon">🌱</span>
+                        <span id="levelResult">—</span>
+                    </div>
+
+                    <p id="levelText">Complete your calculation</p>
+
+                    <div class="level-progress">
+                        <div class="level-progress-head">
+                            <span>Next milestone</span>
+                            <span id="levelProgressText">—</span>
+                        </div>
+                        <div class="level-progress-bg">
+                            <div class="level-progress-fill" id="levelProgressFill"></div>
+                        </div>
+                        <div class="level-next" id="levelNext">Your next EcoTrack milestone will appear here.</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="eco-score">
+
+                <h3>
+                    Your Eco Score
+                </h3>
+
+                <div
+                    class="score-circle"
+                    id="scoreCircle"
+                >
+
+                    <span id="scoreResult">
+                        0
+                    </span>
+
+                </div>
+
+                <p id="scoreMessage">
+                    Calculate your score to see your result.
+                </p>
+
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="history-section" id="historySection" style="display:none;">
+    <div class="history-wrap">
+
+        <button
+            type="button"
+            class="history-toggle"
+            id="historyToggle"
+            onclick="toggleHistory()"
+            aria-expanded="false"
+        >
+            <span class="history-toggle-left">
+                <span class="history-toggle-icon">📅</span>
+                <span>Calculation History</span>
+            </span>
+            <span class="history-toggle-arrow">⌄</span>
+        </button>
+
+        <div class="history-panel" id="historyPanel">
+            <div id="historyContent" class="history-loading">
+                Loading your calculation history...
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="section" id="dashboard">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            Interactive Insights
+        </div>
+
+        <h2>
+            See where your impact comes from.
+        </h2>
+
+        <p>
+            Your carbon footprint isn't one number.
+            Understand the different parts of your lifestyle.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard">
+
+        <div class="chart-card">
+
+            <h3>
+                Emission Breakdown
+            </h3>
+
+            <div class="dashboard-date">
+                Based on your latest calculation:
+                <strong id="dashboardDate">
+                    No calculation yet
+                </strong>
+            </div>
+
+
+            <div class="bar">
+
+                <div class="bar-head">
+
+                    <span>
+                        🚗 Transportation
+                    </span>
+
+                    <b id="transportPercent">
+                        0%
+                    </b>
+
+                </div>
+
+                <div class="bar-bg">
+
+                    <div
+                        class="bar-fill"
+                        id="transportBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bar">
+
+                <div class="bar-head">
+
+                    <span>
+                        ⚡ Energy
+                    </span>
+
+                    <b id="energyPercent">
+                        0%
+                    </b>
+
+                </div>
+
+                <div class="bar-bg">
+
+                    <div
+                        class="bar-fill"
+                        id="energyBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bar">
+
+                <div class="bar-head">
+
+                    <span>
+                        🍽️ Food
+                    </span>
+
+                    <b id="foodPercent">
+                        0%
+                    </b>
+
+                </div>
+
+                <div class="bar-bg">
+
+                    <div
+                        class="bar-fill"
+                        id="foodBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bar">
+
+                <div class="bar-head">
+
+                    <span>
+                        ✈️ Travel
+                    </span>
+
+                    <b id="travelPercent">
+                        0%
+                    </b>
+
+                </div>
+
+                <div class="bar-bg">
+
+                    <div
+                        class="bar-fill"
+                        id="travelBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bar">
+
+                <div class="bar-head">
+
+                    <span>
+                        ♻️ Waste
+                    </span>
+
+                    <b id="wastePercent">
+                        0%
+                    </b>
+
+                </div>
+
+                <div class="bar-bg">
+
+                    <div
+                        class="bar-fill"
+                        id="wasteBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="score-panel">
+
+            <div>
+                YOUR CURRENT ECO SCORE
+            </div>
+
+            <div
+                class="big-score"
+                id="dashboardScore"
+            >
+                —
+            </div>
+
+            <h3 id="dashboardLevel">
+                Calculate your footprint 🌱
+            </h3>
+
+            <p id="dashboardMessage">
+                Your calculated Eco Score will appear here
+                after completing the calculator.
+            </p>
+
+
+            <div class="dashboard-total">
+
+                <small>
+                    Annual Carbon Footprint
+                </small>
+
+                <strong id="dashboardTotal">
+                    —
+                </strong>
+
+                <small>
+                    kg CO₂e / year
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section action-section" id="actionSteps"><div class="section-header"><div class="section-label">Personalized Next Steps</div><h2>What should you do right now?</h2><p>EcoTrack prioritizes practical actions based on the largest contributors in your latest calculation.</p></div><div id="actionCards" class="action-grid"><div class="action-empty">Complete the calculator to receive personalized immediate action steps.</div></div></section>
+
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            Sustainable Living
+        </div>
+
+        <h2>
+            Small actions. Real impact.
+        </h2>
+
+        <p>
+            Sustainability doesn't require perfection.
+            Start with changes that fit your lifestyle.
+        </p>
+
+    </div>
+
+
+    <div class="tips">
+
+        <div class="tip">
+
+            <div class="tip-top">
+                🚲
+            </div>
+
+            <div class="tip-content">
+
+                <h3>
+                    Choose cleaner transport
+                </h3>
+
+                <p>
+                    Walk, cycle or use public transport when
+                    practical instead of taking short car trips.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-top">
+                ⚡
+            </div>
+
+            <div class="tip-content">
+
+                <h3>
+                    Use energy wisely
+                </h3>
+
+                <p>
+                    Switch off unused devices and choose
+                    efficient appliances whenever possible.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-top">
+                ♻️
+            </div>
+
+            <div class="tip-content">
+
+                <h3>
+                    Reduce your waste
+                </h3>
+
+                <p>
+                    Reuse items, recycle appropriately and
+                    avoid unnecessary single-use products.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="section" id="faq">
+
+    <div class="section-header">
+
+        <div class="section-label">
+            FAQ
+        </div>
+
+        <h2>
+            Frequently asked questions
+        </h2>
+
+    </div>
+
+
+    <div class="faq">
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+                How does EcoTrack calculate my Eco Score?
+                <span>+</span>
+            </div>
+
+            <div class="faq-answer">
+                EcoTrack uses the estimated annual emissions from your transportation, electricity, flights, diet and waste inputs. Lower estimated emissions produce a higher educational Eco Score, capped between 10 and 100.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+                What is the Eco Score?
+                <span>+</span>
+            </div>
+
+            <div class="faq-answer">
+                Eco Score is an educational indicator that summarizes
+                your estimated environmental impact and helps you
+                understand opportunities for improvement.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+                What is the difference between carbon footprint and carbon emissions?
+                <span>+</span>
+            </div>
+
+            <div class="faq-answer">
+                Carbon emissions are greenhouse gases released by a source or activity. A carbon footprint is an estimate of the emissions associated with a person, activity, product or organisation.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+                Can I reduce my carbon footprint?
+                <span>+</span>
+            </div>
+
+            <div class="faq-answer">
+                Yes. Changes such as using lower-emission transport,
+                reducing unnecessary energy consumption and managing
+                waste responsibly can help reduce your impact.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+                Is my result exact?
+                <span>+</span>
+            </div>
+
+            <div class="faq-answer">
+                No. The calculator provides an estimate based on the
+                information entered. Actual emissions can vary depending
+                on location, technology and individual circumstances.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="cta">
+
+    <h2>
+        Your choices shape tomorrow.
+    </h2>
+
+    <p>
+        Start understanding your environmental impact today
+        and discover where you can make a difference.
+    </p>
+
+    <a
+        href="#calculator"
+        class="primary-btn nav-close"
+    >
+        Start Your Eco Journey →
+    </a>
+
+</section>
+
+
+<section class="simple-credits" id="project-team"
+    style="padding:14px 5%;text-align:center;background:#f3faf6;border-top:1px solid var(--border);">
+    <h3 style="margin:0 0 10px;color:var(--dark-green);font-size:18px;">
+    Credits
+    </h3>
+    <p style="margin:0;color:var(--dark);font-size:13px;line-height:1.7;">
+        <strong style="color:var(--dark-green);">Project Lead:</strong>
+        Divyanshu Raj (12608082)
+    </p>
+
+    <p style="margin:2px 0 0;color:var(--dark);font-size:13px;line-height:1.7;">
+        <strong style="color:var(--dark-green);">Collaborators:</strong>
+        Krishna Rao (12605751) &amp; Vaishnavi Kushwaha (12605815)
+    </p>
+
+    <p style="margin:4px 0 0;color:var(--gray);font-size:11px;">
+        School of Computing and AI, Lovely Professional University, Punjab
+    </p>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                <img src="logo_ecotrakx.png" alt="EcoTrack">
+            </div>
+
+            <p>
+                An educational platform designed to help people
+                understand their carbon footprint and make more
+                sustainable everyday choices.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#home" class="nav-close">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about" class="nav-close">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#how" class="nav-close">
+                        How It Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#dashboard" class="nav-close">
+                        Insights
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Tools
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#calculator" class="nav-close">
+                        Carbon Calculator
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#dashboard" class="nav-close">
+                        Eco Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#faq" class="nav-close">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Contact Us
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="mailto:ml.divyanshu78@gmail.com">
+                        ml.divyanshu78@gmail.com
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 EcoTrack. Educational Project.
+        </span>
+
+        <span>
+            🌱 Track • Understand • Act
+        </span>
+
+    </div>
+
+</footer>
+</div>
+
+
+<div id="explorePage" class="explore-page" aria-hidden="true">
+
+    <div class="explore-nav">
+        <button class="back-btn" onclick="closeExplore()">← Back</button>
+    <div class="logo" aria-label="EcoTrackX">
+        <img src="logo_ecotrakx.png" alt="EcoTrackX">
+    </div>
+    </div>
+
+    <section class="explore-hero">
+        <div class="section-label">DATA & ANALYSIS</div>
+        <h1>Carbon & Climate Data</h1>
+        <p>Explore global climate trends, India's climate position, major government initiatives, their parent ministries or departments, targets and what the data means.</p>
+    </section>
+
+    <main class="explore-content">
+
+        <div class="explore-intro-grid">
+            <div class="explore-card highlight">
+                <div class="explore-icon">🌍</div>
+                <h2>Why this data matters</h2>
+                <p>Carbon emissions come from energy, transport, industry, buildings, agriculture, land use and other activities. Historical data helps us understand the direction of change, while policy data shows how governments are responding.</p>
+                <p style="margin-top:10px;">EcoTrack presents this information for educational use. Official inventories and government publications should be used for formal reporting.</p>
+            </div>
+
+            <div class="explore-card">
+                <div class="explore-icon">📅</div>
+                <h2>Data status</h2>
+                <p><strong>Global historical reference:</strong> 1990–2019</p>
+                <p><strong>Global assessment:</strong> IPCC AR6 WGIII, published 2022</p>
+                <p><strong>India policy review:</strong> September 2026</p>
+                <span class="date-badge">Page reviewed: 9 September 2026</span>
+            </div>
+        </div>
+
+        <div class="explore-section-title">
+            <div class="section-label">WORLD</div>
+            <h2>Global Carbon & Climate Data</h2>
+            <p>The IPCC reports that global net anthropogenic greenhouse-gas emissions reached 59 ± 6.6 GtCO₂e in 2019.</p>
+        </div>
+
+        <div class="history-chart-card">
+            <div class="history-chart-head">
+                <div>
+                    <h3>Global GHG emissions</h3>
+                    <span>IPCC AR6 Working Group III • 1990–2019</span>
+                </div>
+                <div class="trend-badge">HISTORICAL DATA</div>
+            </div>
+
+            <div class="explore-data-table">
+                <div class="explore-data-row explore-data-header"><span>Indicator</span><span>Value / context</span></div>
+                <div class="explore-data-row"><span>1990 global emissions</span><strong>≈ 38 GtCO₂e</strong></div>
+                <div class="explore-data-row"><span>2010 global emissions</span><strong>≈ 52.5 GtCO₂e</strong></div>
+                <div class="explore-data-row"><span>2019 global emissions</span><strong>59 ± 6.6 GtCO₂e</strong></div>
+                <div class="explore-data-row"><span>2019 vs 2010</span><strong>≈ 12% higher</strong></div>
+                <div class="explore-data-row"><span>2019 vs 1990</span><strong>≈ 54% higher</strong></div>
+            </div>
+
+            <p class="source-line">Data period: 1990–2019. The 2019 value is the latest year in the IPCC AR6 WGIII assessment used here. Source: IPCC, Climate Change 2022: Mitigation of Climate Change.</p>
+        </div>
+
+        <div class="analysis-grid">
+            <div class="analysis-card"><strong>📈 Long-term increase</strong><p>Global net anthropogenic GHG emissions were about 54% higher in 2019 than in 1990.</p></div>
+            <div class="analysis-card"><strong>⚡ Growth slowed, but continued</strong><p>The average annual growth rate was about 1.3% in 2010–2019 compared with 2.1% in 2000–2009.</p></div>
+            <div class="analysis-card"><strong>🏭 Major source groups</strong><p>In 2019, fossil-fuel and industrial CO₂ was the largest component, followed by methane and other greenhouse gases.</p></div>
+        </div>
+
+        <div class="explore-section-title">
+            <div class="section-label">GLOBAL BREAKDOWN</div>
+            <h2>What made up the 2019 global total?</h2>
+        </div>
+
+        <div class="fact-grid">
+            <div class="fact-card"><span>🏭</span><h3>CO₂ — fossil fuels & industry</h3><p>38 ± 3.0 GtCO₂ in 2019.</p></div>
+            <div class="fact-card"><span>🌳</span><h3>CO₂ — land use</h3><p>6.6 ± 4.6 GtCO₂ in 2019.</p></div>
+            <div class="fact-card"><span>🐄</span><h3>Methane</h3><p>11 ± 3.2 GtCO₂e in 2019.</p></div>
+            <div class="fact-card"><span>🌾</span><h3>Nitrous oxide</h3><p>2.7 ± 1.6 GtCO₂e in 2019.</p></div>
+            <div class="fact-card"><span>🏭</span><h3>Fluorinated gases</h3><p>1.4 ± 0.41 GtCO₂e in 2019.</p></div>
+            <div class="fact-card"><span>🌍</span><h3>Total</h3><p>59 ± 6.6 GtCO₂e in 2019.</p></div>
+        </div>
+
+        <div class="explore-section-title india-title">
+            <div class="section-label">INDIA</div>
+            <h2>India's Climate & Carbon Position</h2>
+            <p>India is a major emitter in absolute terms, while its per-capita emissions remain below those of many developed economies. India's climate strategy combines development, mitigation and adaptation.</p>
+        </div>
+
+        <div class="history-chart-card">
+            <div class="history-chart-head">
+                <div><h3>India: key climate-policy indicators</h3><span>Government of India policy commitments</span></div>
+                <div class="trend-badge">INDIA</div>
+            </div>
+
+            <div class="explore-data-table">
+                <div class="explore-data-row explore-data-header"><span>Indicator</span><span>India</span></div>
+                <div class="explore-data-row"><span>Net-zero target</span><strong>2070</strong></div>
+                <div class="explore-data-row"><span>Non-fossil installed electricity capacity target</span><strong>500 GW by 2030</strong></div>
+                <div class="explore-data-row"><span>Emissions-intensity target</span><strong>45% reduction from 2005 level by 2030</strong></div>
+                <div class="explore-data-row"><span>Additional carbon sink commitment</span><strong>2.5–3 billion tonnes CO₂e</strong></div>
+            </div>
+
+            <p class="source-line">Policy information: India's updated Nationally Determined Contribution and Government of India climate-policy sources. Review date: 9 September 2026.</p>
+        </div>
+
+        <div class="analysis-grid">
+            <div class="analysis-card"><strong>🇮🇳 Development challenge</strong><p>India needs to expand energy access and economic opportunity while reducing the emissions intensity of growth.</p></div>
+            <div class="analysis-card"><strong>☀️ Energy transition</strong><p>Solar, wind, hydro and other non-fossil sources are central to India's electricity-transition strategy.</p></div>
+            <div class="analysis-card"><strong>🌳 Adaptation & carbon sinks</strong><p>Forests, ecosystems, agriculture, water and climate-resilient infrastructure are important parts of India's response.</p></div>
+        </div>
+
+        <div class="explore-section-title">
+            <div class="section-label">GOVERNMENT INITIATIVES</div>
+            <h2>What initiatives has India taken?</h2>
+            <p>India's climate response is distributed across national missions and multiple ministries and departments.</p>
+        </div>
+
+        <div class="initiative-grid">
+            <div class="initiative-card"><span>☀️</span><h3>National Solar Mission</h3><p>Promotes large-scale solar deployment and supports India's renewable-energy transition.</p><p><strong>Parent Ministry:</strong> Ministry of New and Renewable Energy (MNRE)</p><div class="mission-date">Mission approved: 30 June 2008 • launched: 11 January 2010</div></div>
+            <div class="initiative-card"><span>⚡</span><h3>National Mission for Enhanced Energy Efficiency</h3><p>Promotes energy efficiency and lower energy consumption across the economy.</p><p><strong>Parent Agency:</strong> Bureau of Energy Efficiency, Ministry of Power</p></div>
+            <div class="initiative-card"><span>🏙️</span><h3>National Mission on Sustainable Habitat</h3><p>Addresses sustainable urban development, buildings, mobility, waste and water-related urban issues.</p><p><strong>Parent Ministry:</strong> Ministry of Housing and Urban Affairs</p></div>
+            <div class="initiative-card"><span>💧</span><h3>National Water Mission</h3><p>Promotes water conservation, efficiency and sustainable water-resource management.</p><p><strong>Parent Ministry:</strong> Ministry of Jal Shakti</p></div>
+            <div class="initiative-card"><span>🏔️</span><h3>National Mission for Sustaining the Himalayan Ecosystem</h3><p>Supports research, monitoring, ecosystem understanding and climate resilience in the Himalayan region.</p><p><strong>Parent Ministry:</strong> Ministry of Environment, Forest and Climate Change</p></div>
+            <div class="initiative-card"><span>🌳</span><h3>National Mission for a Green India</h3><p>Focuses on forest and tree cover, restoration of degraded landscapes and carbon sequestration.</p><p><strong>Parent Ministry:</strong> Ministry of Environment, Forest and Climate Change</p><div class="mission-date">Officially launched: February 2014</div></div>
+            <div class="initiative-card"><span>🌾</span><h3>National Mission for Sustainable Agriculture</h3><p>Supports climate-resilient agriculture through soil, water, agroforestry, rainfed-area and sustainable-farming measures.</p><p><strong>Parent Department:</strong> Department of Agriculture & Farmers Welfare</p><div class="mission-date">Launched: 23 September 2010</div></div>
+            <div class="initiative-card"><span>🔬</span><h3>National Mission on Strategic Knowledge for Climate Change</h3><p>Builds climate knowledge, vulnerability assessment, modelling, capacity and scientific support for decision-making.</p><p><strong>Parent Ministry:</strong> Ministry of Science and Technology • Implementing agency: Department of Science and Technology</p></div>
+            <div class="initiative-card"><span>🏥</span><h3>National Programme on Climate Change & Human Health</h3><p>Addresses climate-sensitive health risks such as heat, air pollution, disease surveillance and health-system resilience.</p><p><strong>Parent Ministry:</strong> Ministry of Health and Family Welfare</p></div>
+            <div class="initiative-card"><span>🌐</span><h3>National Action Plan on Climate Change (NAPCC)</h3><p>Provides the overarching national framework connecting India's climate missions and initiatives.</p><p><strong>Nodal / coordinating Ministry:</strong> Department of Science and Technology</p><div class="mission-date">Launched: 2008</div></div>
+        </div>
+
+        <div class="targets-card">
+            <div>
+                <div class="section-label">INDIA 2030 & 2070</div>
+                <h2>Major climate commitments</h2>
+                <p>India's commitments combine mitigation, renewable-energy expansion, energy efficiency, carbon sinks and long-term net-zero action.</p>
+            </div>
+            <div class="target-pills">
+                <span>☀️ 500 GW non-fossil installed electricity capacity by 2030</span>
+                <span>📉 45% reduction in emissions intensity of GDP from 2005 level by 2030</span>
+                <span>🌳 Additional carbon sink of 2.5–3 billion tonnes CO₂e</span>
+                <span>🌍 Net-zero emissions by 2070</span>
+            </div>
+        </div>
+
+        <div class="explore-section-title">
+            <div class="section-label">PARENT DEPARTMENTS</div>
+            <h2>Who is responsible for what?</h2>
+            <p>Climate action in India is shared across ministries, departments and implementing agencies.</p>
+        </div>
+
+        <div class="world-action-grid">
+            <div><strong>Ministry of Environment, Forest and Climate Change</strong><p>Nodal/coordinating point for the National Action Plan on Climate Change and coordination of its missions and wider climate-policy work.</p></div>
+            <div><strong>Ministry of New and Renewable Energy</strong><p>Leads major renewable-energy programmes, including the National Solar Mission.</p></div>
+            <div><strong>Ministry of Power / Bureau of Energy Efficiency</strong><p>Responsible for power-sector policy and major energy-efficiency programmes.</p></div>
+            <div><strong>Department of Agriculture & Farmers Welfare</strong><p>Leads the sustainable-agriculture mission and climate-resilient agriculture measures.</p></div>
+            <div><strong>Ministry of Housing and Urban Affairs</strong><p>Leads sustainable-habitat and urban-development measures linked with climate resilience.</p></div>
+            <div><strong>Ministry of Jal Shakti</strong><p>Leads national water-conservation and sustainable water-management efforts.</p></div>
+            <div><strong>Ministry of Science and Technology / Department of Science and Technology</strong><p>Anchors strategic climate knowledge, research, modelling and capacity-building programmes.</p></div>
+            <div><strong>Ministry of Health and Family Welfare</strong><p>Leads climate-and-health programmes addressing health risks from a changing climate.</p></div>
+        </div>
+
+        <div class="explore-section-title">
+            <div class="section-label">ANALYSIS</div>
+            <h2>What does the data tell us?</h2>
+        </div>
+
+        <div class="analysis-grid">
+            <div class="analysis-card"><strong>01 — Global picture</strong><p>Global emissions increased substantially over the long term. Future reductions require changes across energy, transport, industry, buildings, agriculture and land use.</p></div>
+            <div class="analysis-card"><strong>02 — India's position</strong><p>India's climate challenge is closely connected with development, energy access and rising demand, so reducing emissions intensity is important.</p></div>
+            <div class="analysis-card"><strong>03 — Government response</strong><p>India uses a multi-ministry approach. Different missions address energy, forests, agriculture, water, cities, health and climate knowledge.</p></div>
+            <div class="analysis-card"><strong>04 — Why targets matter</strong><p>Targets such as 500 GW of non-fossil capacity and net zero by 2070 provide long-term direction for policy and investment.</p></div>
+            <div class="analysis-card"><strong>05 — Why dates matter</strong><p>The newest available emissions inventory or assessment year may lag behind the current calendar year. The page therefore labels the actual data period.</p></div>
+            <div class="analysis-card"><strong>06 — Individual action</strong><p>Transport, electricity, food, travel and waste choices can influence an individual's estimated footprint, which is why EcoTrack connects national context to personal action.</p></div>
+        </div>
+
+        <div class="sources-card">
+            <h3>Data & information sources</h3>
+            <p>• IPCC Sixth Assessment Report, Working Group III — global emissions trends and 2019 breakdown.</p>
+            <p>• Ministry of Environment, Forest and Climate Change, Government of India — National Action Plan on Climate Change and climate-policy information.</p>
+            <p>• NAPCC Dashboard, Government of India — mission descriptions, parent ministries, implementing agencies and mission information.</p>
+            <p>• Ministry of New and Renewable Energy — National Solar Mission and renewable-energy information.</p>
+            <p>• Department of Agriculture & Farmers Welfare — National Mission for Sustainable Agriculture.</p>
+            <p>All information on this page is presented for educational purposes and should not be treated as an official emissions inventory.</p>
+        </div>
+
+        <div class="explore-cta">
+            <h2>Understand the data. Then take action.</h2>
+            <p>Use the information above to understand the bigger climate picture, then calculate your own estimated footprint with EcoTrack.</p>
+            <button class="primary-btn" onclick="closeExploreAndGoToCalculator()">Calculate My Footprint →</button>
+        </div>
+
+    </main>
+</div>
+
+
+
+<div
+    id="profileOverlay"
+    class="profile-overlay"
+    aria-hidden="true"
+    onclick="closeProfile(event)"
+>
+    <div
+        class="profile-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="profileTitle"
+        onclick="event.stopPropagation()"
+    >
+
+        <div class="profile-card-head">
+            <div class="profile-title-wrap">
+                <div class="profile-big-icon">👤</div>
+                <div>
+                    <h2 id="profileTitle">My Profile</h2>
+                    <p>Your EcoTrack account</p>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="profile-close"
+                onclick="closeProfile()"
+                aria-label="Close profile"
+            >×</button>
+        </div>
+
+        <div class="profile-info-box">
+            <div class="profile-info-row">
+                <span>Name</span>
+                <strong id="profileDisplayName">—</strong>
+            </div>
+
+            <div class="profile-info-row">
+                <span>Email</span>
+                <strong id="profileDisplayEmail">—</strong>
+            </div>
+
+            <div class="profile-info-row">
+                <span>Member since</span>
+                <strong id="profileDisplayJoined">—</strong>
+            </div>
+        </div>
+
+        <div class="profile-edit-title">Edit account details</div>
+
+        <form class="profile-form" onsubmit="saveProfile(event)">
+
+            <div class="profile-field">
+                <label for="profileName">Full Name</label>
+                <input
+                    id="profileName"
+                    type="text"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="profile-field">
+                <label for="profileEmail">Email Address</label>
+                <input
+                    id="profileEmail"
+                    type="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="profile-actions">
+                <button type="submit" class="profile-save-btn">
+                    Save Changes
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-logout-btn"
+                    onclick="logoutUser()"
+                >
+                    Logout
+                </button>
+            </div>
+
+        </form>
+
+        <div id="profileMessage" class="profile-message"></div>
+
+    </div>
+</div>
+
+<div id="authPage" class="auth-page" aria-hidden="true">
+
+    <div class="auth-nav">
+       
+        <button class="auth-back" onclick="closeAuth()">← Back</button>
+        
+        <a href="#home" class="logo nav-close" aria-label="EcoTrack Home">
+             <img src="logo_ecotrakx.png" alt="EcoTrack">
+        </a>
+    </div>
+
+    <main class="auth-content">
+
+       
+        <div id="loginCard" class="auth-card">
+
+            <div class="auth-icon">🔐</div>
+            <h1>Welcome back</h1>
+            <p class="auth-subtitle">Login to continue to your EcoTrack account.</p>
+
+            <form class="auth-form" onsubmit="loginUser(event)">
+
+                <div class="auth-field">
+                    <label for="loginEmail">Email Address</label>
+                    <input id="loginEmail" type="email" placeholder="Enter your email"
+                           autocomplete="email" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="loginPassword">Password</label>
+                    <div class="auth-input-wrap">
+                        <input id="loginPassword" type="password" placeholder="Enter your password"
+                               autocomplete="current-password" required>
+                        <button type="button" class="password-toggle"
+                                onclick="togglePassword('loginPassword', this)">Show</button>
+                    </div>
+                </div>
+
+                <div class="auth-options">
+                    <label class="remember-me">
+                        <input id="rememberMe" type="checkbox">
+                        Remember me
+                    </label>
+
+                    <button type="button" class="auth-link" onclick="showForgotPassword()">
+                        Forgot password?
+                    </button>
+                </div>
+
+                <button type="submit" class="auth-submit">Login</button>
+            </form>
+
+            <div id="loginMessage" class="auth-message"></div>
+
+            <div class="auth-divider">OR</div>
+
+            <div class="auth-bottom">
+                Don't have an account?
+                <button type="button" onclick="showSignup()">Sign up</button>
+            </div>
+
+            <p class="auth-note">
+                Your account is securely handled through EcoTrack and Supabase authentication.
+            </p>
+        </div>
+
+
+        
+        <div id="signupCard" class="auth-card" style="display:none;">
+
+            <div class="auth-icon">🌱</div>
+            <h1>Create your account</h1>
+            <p class="auth-subtitle">Sign up to start using EcoTrack.</p>
+
+            <form class="auth-form" onsubmit="signupUser(event)">
+
+                <div class="auth-field">
+                    <label for="signupName">Full Name</label>
+                    <input id="signupName" type="text" placeholder="Enter your full name"
+                           autocomplete="name" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="signupEmail">Email Address</label>
+                    <input id="signupEmail" type="email" placeholder="Enter your email"
+                           autocomplete="email" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="signupPassword">Password</label>
+                    <div class="auth-input-wrap">
+                        <input id="signupPassword" type="password" placeholder="Create a password"
+                               minlength="6" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle"
+                                onclick="togglePassword('signupPassword', this)">Show</button>
+                    </div>
+                </div>
+
+                <div class="auth-field">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <div class="auth-input-wrap">
+                        <input id="signupConfirmPassword" type="password" placeholder="Confirm your password"
+                               minlength="6" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle"
+                                onclick="togglePassword('signupConfirmPassword', this)">Show</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-submit">Create Account</button>
+            </form>
+
+            <div id="signupMessage" class="auth-message"></div>
+
+            <div class="auth-divider">OR</div>
+
+            <div class="auth-bottom">
+                Already have an account?
+                <button type="button" onclick="showLogin()">Login</button>
+            </div>
+        </div>
+
+
+        
+        <div id="verifyOtpCard" class="auth-card" style="display:none;">
+
+            <div class="auth-icon">✉️</div>
+            <h1>Verify your email</h1>
+            <p class="auth-subtitle">
+                Enter the one-time code sent to your email to activate your EcoTrackX account.
+            </p>
+
+            <form class="auth-form" onsubmit="verifySignupOtp(event)">
+                <div class="auth-field">
+                    <label for="signupOtp">Email verification code</label>
+                    <input id="signupOtp" type="text" inputmode="numeric"
+                           autocomplete="one-time-code" maxlength="8"
+                           placeholder="Enter the code from your email" required>
+                </div>
+                <button type="submit" class="auth-submit">Verify Email</button>
+            </form>
+
+            <div id="verifyOtpMessage" class="auth-message" role="status" aria-live="polite"></div>
+
+            <div class="auth-bottom" style="margin-top:18px;">
+                Didn't receive the code?
+                <button type="button" onclick="resendSignupOtp()">Resend code</button>
+            </div>
+
+            <div class="auth-bottom" style="margin-top:12px;">
+                <button type="button" onclick="showSignup()">Back to sign up</button>
+            </div>
+        </div>
+
+
+       
+        <div id="forgotCard" class="auth-card" style="display:none;">
+
+            <div class="auth-icon">🔑</div>
+            <h1>Reset password</h1>
+            <p class="auth-subtitle">
+                Enter your registered email and we'll send you a one-time verification code.
+            </p>
+
+            <form class="auth-form" onsubmit="forgotPassword(event)">
+
+                <div class="auth-field">
+                    <label for="forgotEmail">Email Address</label>
+                    <input id="forgotEmail" type="email"
+                           placeholder="Enter your registered email"
+                           autocomplete="email" required>
+                </div>
+
+                <button type="submit" class="auth-submit">Send Verification Code</button>
+            </form>
+
+            <div id="forgotMessage" class="auth-message"></div>
+
+            <div class="auth-divider">OR</div>
+
+            <div class="auth-bottom">
+                Remember your password?
+                <button type="button" onclick="showLogin()">Back to Login</button>
+            </div>
+        </div>
+
+        
+        <div id="resetOtpCard" class="auth-card" style="display:none;">
+            <div class="auth-icon">✉️</div>
+            <h1>Verify your email</h1>
+            <p class="auth-subtitle">Enter the password-reset code sent to your email.</p>
+            <form class="auth-form" onsubmit="verifyPasswordResetOtp(event)">
+                <div class="auth-field">
+                    <label for="resetEmailOtp">Email verification code</label>
+                    <input id="resetEmailOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{8}" maxlength="8" placeholder="Enter 8-digit code" required>
+                </div>
+                <button type="submit" class="auth-submit" id="verifyResetOtpBtn">Verify Code</button>
+            </form>
+            <div id="resetOtpMessage" class="auth-message" role="status" aria-live="polite"></div>
+            <div class="auth-bottom" style="margin-top:12px;">
+                <button type="button" onclick="resendPasswordResetOtp()">Resend code</button><br><br>
+                <button type="button" onclick="showForgotPassword()">Change email</button>
+            </div>
+        </div>
+
+        
+        <div id="resetPasswordCard" class="auth-card" style="display:none;">
+            <div class="auth-icon">🔒</div>
+            <h1>Choose a new password</h1>
+            <p class="reset-password-help">Enter your new password below. This will update the password for your EcoTrackX account.</p>
+            <form class="auth-form" onsubmit="saveNewPassword(event)">
+                <div class="auth-field">
+                    <label for="newPassword">New Password</label>
+                    <div class="auth-input-wrap">
+                        <input id="newPassword" type="password" placeholder="Enter a new password" minlength="6" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('newPassword', this)">Show</button>
+                    </div>
+                </div>
+                <div class="auth-field">
+                    <label for="confirmNewPassword">Confirm New Password</label>
+                    <div class="auth-input-wrap">
+                        <input id="confirmNewPassword" type="password" placeholder="Re-enter your new password" minlength="6" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmNewPassword', this)">Show</button>
+                    </div>
+                </div>
+                <button type="submit" class="auth-submit" id="saveNewPasswordBtn">Update Password</button>
+            </form>
+            <div id="resetPasswordMessage" class="auth-message" role="status" aria-live="polite"></div>
+            <p class="auth-note">Use this form after verifying the code sent to your email.</p>
+        </div>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
